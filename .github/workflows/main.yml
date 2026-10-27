@@ -1,0 +1,47 @@
+```yaml
+name: حساب من
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: ساخت اپلیکیشن اندروید
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: دریافت پروژه
+        uses: actions/checkout@v4
+
+      - name: نصب Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: نصب Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: آماده‌سازی اندروید
+        run: |
+          if [ ! -f android/gradlew ]; then
+            flutter create --platforms=android .
+          fi
+
+      - name: دریافت وابستگی‌ها
+        run: flutter pub get
+
+      - name: ساخت APK
+        run: flutter build apk --release
+
+      - name: ذخیره فایل APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: حساب-من-APK
+          path: build/app/outputs/flutter-apk/app-release.apk
+```
