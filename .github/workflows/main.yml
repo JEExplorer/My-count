@@ -43,5 +43,4 @@ jobs:
         with:
           name: حساب-من-APK
           path: build/app/outputs/flutter-apk/app-release.apk
-```
 
