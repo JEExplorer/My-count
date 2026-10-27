@@ -28,7 +28,7 @@ class AfghanBusinessPro extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: green),
+  colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         scaffoldBackgroundColor: bg,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
@@ -102,7 +102,7 @@ class ShopDb {
           )
         ''');
         await db.execute('''
-          CREATE TABLE debts(
+          mainAxisAlignment: MainAxisAlignment.center,
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             customer TEXT NOT NULL,
             phone TEXT NOT NULL DEFAULT '',
